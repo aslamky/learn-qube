@@ -1,0 +1,8 @@
+[Unit]
+Description=OpenVidu Server
+
+[Service]
+ExecStart=/usr/bin/java -jar -Dopenvidu.secret=openvidu -Dserver.ssl.key-store=/root/openvidu.jks -Dserver.ssl.key-store-password=openvidu -Dserver.ssl.key-alias=openvidu /root/openvidu-server-1.9.0.jar
+
+[Install]
+WantedBy=multi-user.target

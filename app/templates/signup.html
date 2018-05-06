@@ -1,0 +1,59 @@
+{% extends 'base.html' %} {% block head %}
+<style>
+    body {
+    background-image: url('/static/img/lqformback.jpg');
+    min-height: 100vh;
+}
+</style>
+{% endblock %} {% block body %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading" align="center"><img src="/static/img/logo.png"></div>
+                <div class="panel-body" style="padding: 20px;">
+                    <form role="Form" method="post" action="/signup" accept-charset="UTF-8">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" class="form-control" name="first_name" placeholder="Example: John">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" id="last_name" class="form-control" name="last_name" placeholder="Example: Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Select role</label>
+                            <select id="role" class="form-control" name="role">
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Admin">School Admin</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailaddr">Email Address</label>
+                            <input type="text" id="emailaddr" class="form-control" name="email" placeholder="Example: john.doe@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" name="password" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="verifypass">Verify Password</label>
+                            <input type="password" id="confirmpass" class="form-control" name="verifypass" placeholder="">
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitbtn" name="submit">Sign up!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div style="padding-top:20px; font-size:85%; color: white; margin-bottom: 20px;" align="center">
+                Already have an account ?
+                <a href="/login" class="btn btn-primary">Login Now !</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

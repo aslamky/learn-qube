@@ -1,0 +1,41 @@
+{
+  "description": "Demo Accounts",
+  "accounts": [
+    {
+      "email": "teacher1@demo.com",
+      "first_name": "Teacher",
+      "last_name": "One",
+      "password": "T3@cHEr1"
+    },
+    {
+      "email": "teacher2@demo.com",
+      "first_name": "Teacher",
+      "last_name": "Two",
+      "password": "T3@cHEr2"
+    },
+    {
+      "email": "student1@demo.com",
+      "first_name": "Student",
+      "last_name": "One",
+      "password": "StUd3nT1"
+    },
+    {
+      "email": "student2@demo.com",
+      "first_name": "Student",
+      "last_name": "Two",
+      "password": "StUd3nT2"
+    },
+    {
+      "email": "student3@demo.com",
+      "first_name": "Student",
+      "last_name": "Three",
+      "password": "StUd3nT3"
+    },
+    {
+      "email": "student4@demo.com",
+      "first_name": "Student",
+      "last_name": "Four",
+      "password": "StUd3nT4"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load export_settings %}
+
+{% block head %}
+  <link rel="stylesheet" href="/static/assets/jspanel4/dist/jspanel.css">
+  <link rel="stylesheet" href="/static/css/classroom.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script>
+  const OPENVIDU_URL = '{% settings_value "OPENVIDU_URL"%}';
+  const DEEPSTREAM_URL = '{% settings_value "DEEPSTREAM_URL"%}';
+  const username = '{{request.user.first_name}} {{request.user.last_name}}';
+  </script>
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid pad5" id="maincontainer" style="z-index: 1000 !important;">
+    <span class="col-md-2" id="videosection">
+      <div id="webcam_container">
+        <div id="videos">
+          <div id="publisher"></div>
+        </div>
+      </div>
+    </span>
+    <span class="col-md-8" id="whiteboard_container">
+    </span>
+    <span class="col-md-2" id="chat_container">
+    </span>
+  </div>
+  <br><br>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/static/assets/jspanel4/dist/jspanel.js"></script>
+  <script src="/static/assets/jspanel4/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+  <script src="/static/assets/jspanel4/dist/extensions/hint/jspanel.hint.js"></script>
+  <script src="/static/assets/jspanel4/dist/extensions/modal/jspanel.modal.js"></script>
+  <script src="/static/assets/jspanel4/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+  <script src="/static/assets/moment/min/moment.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/deepstream.io-client-js/2.1.1/deepstream.js"></script>
+
+  <script src="/static/js/init.js"></script>
+  <script src="/static/js/openvidu-browser-1.9.0.js"></script>
+  <script src="/static/js/classroom.js"></script>
+  <script src="/static/js/webcam.js"></script>
+  <script src="/static/js/chat.js"></script>
+{% endblock %}
+

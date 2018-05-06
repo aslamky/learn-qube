@@ -1,0 +1,37 @@
+.index {
+    display: block;
+}
+
+header {
+    max-height: 70px;
+}
+
+.navbar-header {
+    margin-top: 10px;
+}
+
+.dropdown-toggle {
+    max-height: 70px;
+    margin-top: -5px !important;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.navbar-nav>li>a {
+    padding: 30px 10px !important;
+}
+
+.material-icons {
+    height: 24px;
+    width: 21px;
+}
+
+.jsPanel-controlbar {
+    padding: 5px !important;
+}
+
+#chatsection{
+  word-wrap: break-word;
+}

@@ -1,0 +1,118 @@
+{% extends 'base.html' %} {% block head %}
+<style>
+body {
+    background-image: url('/static/img/lqformback.jpg');
+    min-height: 100vh;
+}
+
+.panel {
+    margin-top: 60px;
+}
+
+#demotable {
+    margin-top: 60px;
+    /*display: none;*/
+}
+</style>
+{% endblock %} {% block body %}
+<div class="container">
+    <br>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading" align="center"><img src="/static/img/logo.png"></div>
+                <div class="panel-body" style="padding: 20px;">
+                    <form role="Form" method="post" action="/login" accept-charset="UTF-8">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="emailaddr">Email Address</label>
+                            <input type="text" id="email" class="form-control" name="email" placeholder="Example: john.doe@gmail.com">
+                        </div>
+                	<span id="formbody" class="pull-right" style="width:100%;"></span>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" class="form-control" name="password" placeholder="">
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary btn-lg" id="loginbtn" name="submit">Login!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div style="padding-top:20px; font-size:85%; color: white; margin-bottom: 20px;" align="center">
+                Don't have an account ?
+                <a href="/signup" class="btn btn-primary">Sign up !</a>
+            </div>
+
+<hr>
+
+   <center>             <button class="btn btn-info" id="demoaccounts">Login as a demo user</button> </center>
+<br>
+                <div class="col-md-4 well hide" id="demotable">
+           	    <a href="#" class="close" data-dismiss="alert" aria-label="close" id="closeme">&times;</a>
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Password</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>teacher1@demo.com</td>
+                                <td>T3@cHEr1</td>
+                            </tr>
+                            <tr>
+                                <td>teacher2@demo.com</td>
+                                <td>T3@cHEr2</td>
+                            </tr>
+                            <tr>
+                                <td>student1@demo.com</td>
+                                <td>StUd3nT1</td>
+                            </tr>
+                            <tr>
+                                <td>student2@demo.com</td>
+                                <td>StUd3nT2</td>
+                            </tr>
+                            <tr>
+                                <td>student3@demo.com</td>
+                                <td>StUd3nT3</td>
+                            </tr>
+                            <tr>
+                                <td>student4@demo.com</td>
+                                <td>StUd3nT4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+        </div>
+    </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+$(document).ready(function() {
+    /*$('[data-toggle="popover"]').popover();*/
+    // $('.popper').popover({
+    $('#formbody').popover({
+        placement: 'right',
+        // container: 'body',
+        html: true,
+        content: function() {
+            // return $(this).next('.popper-content').html();
+            return $('#demotable').html();
+        }
+    });
+
+$('#demoaccounts').on('click', function(){
+  $('#formbody').popover('show');
+});
+
+$('body').on('click', '#closeme', function(){
+  $('#formbody').popover('hide');
+});
+
+});
+</script>
+{% endblock %}
